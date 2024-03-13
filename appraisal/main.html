@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Performance Appraisal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for the combined page */
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="topnav">
+    <a href="#home" onclick="showPage('home')">Home</a>
+    <a href="#appraisals" onclick="showPage('appraisals')">Appraisals</a>
+    <a href="#employees" onclick="showPage('employees')">Employees</a>
+    <a href="#about" onclick="showPage('help')">Help</a>
+</div>
+
+<div id="home" class="content active">
+  <div class="container">
+      <h2>Welcome to Our Company</h2>
+      <p>Welcome to our company's performance appraisal page. Performance appraisal is a crucial process in every industry, including ours. It helps evaluate the performance of employees, provide feedback, and identify areas for improvement.</p>
+      
+      <h3>Importance of Performance Appraisal</h3>
+      <p>Performance appraisal plays a significant role in enhancing employee productivity, motivation, and job satisfaction. It helps in:</p>
+      <ul>
+          <li>Recognizing and rewarding top performers</li>
+          <li>Identifying training and development needs</li>
+          <li>Setting goals and aligning them with organizational objectives</li>
+          <li>Improving communication between managers and employees</li>
+          <li>Facilitating career development and succession planning</li>
+      </ul>
+      
+      <h3>Industry Insights</h3>
+      <p>Here are some industry insights on performance appraisal:</p>
+      <ul>
+          <li><a href="#">Industry Report: Trends in Performance Appraisal</a></li>
+          <li><a href="#">Best Practices for Effective Performance Appraisal</a></li>
+          <li><a href="#">Case Studies: Successful Implementation of Performance Appraisal Systems</a></li>
+      </ul>
+      
+      <h3>Image Gallery</h3>
+      <div class="scroll-container">
+        <img src="img1.png" alt="img1" width="600" height="400">
+        <img src="img2.jpg" alt="img2" width="600" height="400">
+        <img src="img3.jpg" alt="img3" width="600" height="400">
+        <img src="img4.webp" alt="img4" width="600" height="400">
+    </div>
+    
+  </div>
+</div>
+
+
+<div id="appraisals" class="content">
+  <div>
+    <div class="container">
+        <h2>Employee Performance Appraisal</h2>
+        <form id="appraisalForm">
+            <label for="emp_no">Employee Number:</label>
+            <input type="text" id="emp_no" name="emp_no" required>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="experience">Experience (years):</label>
+            <input type="number" id="experience" name="experience" min="0" required>
+
+            <label for="manager_rating">Manager Rating (1-10):</label>
+            <input type="number" id="manager_rating" name="manager_rating" min="1" max="10" required>
+
+            <label for="TL_rating">TL Rating (1-10):</label>
+            <input type="number" id="TL_rating" name="TL_rating" min="1" max="10" required>
+
+            <label for="Role">Role:</label>
+            <input type="text" id="Role" name="Role" required>
+
+            <label for="timeon_odc">Time spent on ODC (hours):</label>
+            <input type="number" id="timeon_odc" name="timeon_odc" min="1" required>
+
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" min="0" required>
+
+            <label for="emp_type">Employee Type:</label>
+            <select id="emp_type" name="emp_type" required>
+                <option value="">Select Type</option>
+                <option value="F">Full-time</option>
+                <option value="P">Part-time</option>
+                <option value="C">Contract</option>
+            </select>
+
+            <button type="button" onclick="calculateAppraisal()">Calculate Appraisal</button>
+        </form>
+
+        <div id="result" style="display: none;">
+            <h3>Employee Appraisal Result</h3>
+            <p id="appraisal_result"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</div>
+</div>
+
+<div id="employees" class="content">
+  <div>
+    <div class="container">
+        <h2>Employees</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Employee ID</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Project</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>shanker raj</td>
+                    <td>EMP001</td>
+                    <td>s.raj@gmail.com</td>
+                    <td>Software Engineer</td>
+                    <td>x-factor</td>
+                </tr>
+                <tr>
+                    <td>ten Smith</td>
+                    <td>EMP002</td>
+                    <td>ten.smith@gmail.com</td>
+                    <td>UI/UX Designer</td>
+                    <td>Design-Y</td>
+                </tr>
+                <tr>
+                    <td>Michael Johnson</td>
+                    <td>EMP003</td>
+                    <td>michael.johnson@gmail.com</td>
+                    <td>Java Devolper</td>
+                    <td>Proton</td>
+                </tr>
+                <tr>
+                  <td>Rajesh Kumar</td>
+                  <td>EMP004</td>
+                  <td>rajesh.kumar@example.com</td>
+                  <td>Database Administrator</td>
+                  <td>Project Z</td>
+              </tr>
+              <tr>
+                  <td>Priya Patel</td>
+                  <td>EMP005</td>
+                  <td>priya.patel@example.com</td>
+                  <td>Business Analyst</td>
+                  <td>Project A</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<div id="help" class="content">
+    <div class="container">
+        <h2>Help</h2>
+        <p>If you need any assistance, please reach out to our support team.</p>
+        <p>Email: support@company.com</p>
+    </div>
+</div>
+
+<script>
+    function showPage(pageId) {
+        var pages = document.getElementsByClassName('content');
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].classList.remove('active');
+        }
+        document.getElementById(pageId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
