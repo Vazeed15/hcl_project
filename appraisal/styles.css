@@ -1,23 +1,21 @@
-
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
-
 .topnav {
-  overflow: hidden;
   background-color: #333;
+  overflow: hidden;
 }
 
 .topnav a {
   float: left;
+  display: block;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
 }
 
 .topnav a:hover {
@@ -25,118 +23,80 @@ body {
   color: black;
 }
 
-
-.topnav a.active {
-  background-color: #04AA6D;
+.topnav a.split {
+  float: right;
+  color: white;
+  border-left: 1px solid #bbb;
 }
 
-/* Container  */
 .container {
-  max-width: 800px; 
-  margin: 20px auto; 
-  background-color: #fff;
+  max-width: 800px;
+  margin: 20px auto;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-}
-
-.container h2 {
-  margin-top: 0; 
-}
-
-.container p {
-  color: #666;
-}
-
-.container ul {
-  list-style-type: none; 
-  padding: 0;
-}
-
-.container ul li {
-  margin-bottom: 10px; 
-}
-
-.container form label {
-  display: block;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.container form input[type="text"],
-.container form input[type="number"],
-.container form select {
-  width: calc(100% - 16px);
-  padding: 10px;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s ease;
-}
-
-.container form input[type="text"]:focus,
-.container form input[type="number"]:focus,
-.container form select:focus {
-  border-color: #007bff; 
-  outline: none;
-}
-
-.container form button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 12px 24px;
-  cursor: pointer;
-  width: 100%;
-  display: block;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.container form button:hover {
-  background-color: #0056b3;
-}
-
-
-#result {
+  border-radius: 5px;
   background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#addEmployeeBtn {
+  float: right;
+  margin-bottom: 10px;
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#addEmployeeForm {
+  display: none;
   margin-top: 20px;
 }
 
-#result h3 {
-  margin-top: 0; /* Remove top margin from h3 element */
-  color: #333;
+form {
+  margin-top: 20px;
 }
 
-#result p {
-  color: #666;
-}
-.scroll-container {
-  display: flex; 
-  overflow-x: auto; 
-  white-space: nowrap; 
+label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-.scroll-container img {
-  margin-right: 10px; 
-}
-.scroll-container {
-  overflow-x: scroll;
-  white-space: nowrap;
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
 }
 
-.scroll-container img {
-  display: inline-block;
-  margin: 5px;
-  vertical-align: top;
+input[type="submit"],
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #45a049;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
 th, td {
@@ -147,4 +107,22 @@ th, td {
 
 th {
   background-color: #f2f2f2;
+}
+
+.scroll-container {
+  max-width: 800px;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.scroll-container img {
+  margin-right: 10px;
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
 }
