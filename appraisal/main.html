@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Performance Appraisal</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/4bc8eaea19.js" crossorigin="anonymous"></script>
     <style>
         /* Additional styles for the combined page */
         .content {
@@ -23,6 +24,7 @@
     <a href="#appraisals" onclick="showPage('appraisals')">Appraisals</a>
     <a href="#employees" onclick="showPage('employees')">Employees</a>
     <a href="#about" onclick="showPage('help')">Help</a>
+    <a href="#Profile" class="split"><i class="fa-regular fa-user"></i></a>
 </div>
 
 <div id="home" class="content active">
@@ -43,9 +45,9 @@
       <h3>Industry Insights</h3>
       <p>Here are some industry insights on performance appraisal:</p>
       <ul>
-          <li><a href="#">Industry Report: Trends in Performance Appraisal</a></li>
-          <li><a href="#">Best Practices for Effective Performance Appraisal</a></li>
-          <li><a href="#">Case Studies: Successful Implementation of Performance Appraisal Systems</a></li>
+          <li>Industry Report: Trends in Performance Appraisal</li>
+          <li>Best Practices for Effective Performance Appraisal</li>
+          <li>Case Studies: Successful Implementation of Performance Appraisal Systems</li>
       </ul>
       
       <h3>Image Gallery</h3>
@@ -109,62 +111,73 @@
     <script src="script.js"></script>
 </div>
 </div>
-
 <div id="employees" class="content">
-  <div>
     <div class="container">
-        <h2>Employees</h2>
-        <table>
+        <button id="addEmployeeBtn">Add Employee</button>
+
+        <div id="addEmployeeForm">
+            <form id="employeeForm">
+                <label for="empName">Employee Name:</label>
+                <input type="text" id="empName" name="empName" required>
+
+                <label for="empID">Employee ID:</label>
+                <input type="number" id="empID" name="empID" required>
+
+                <label for="empDesignation">Designation:</label>
+                <input type="text" id="empDesignation" name="empDesignation" required>
+
+                <label for="empMail">Mail:</label>
+                <input type="text" id="empMail" name="empMail" required>
+
+                <input type="submit" value="Add Employee">
+            </form>
+        </div>
+
+        <h2>Employee List</h2>
+        <table id="employeeTable">
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Employee ID</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Project</th>
+                    <th>ID</th>
+                    <th>Designation</th>
+                    <th>Mail</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>shanker raj</td>
-                    <td>EMP001</td>
-                    <td>s.raj@gmail.com</td>
-                    <td>Software Engineer</td>
-                    <td>x-factor</td>
-                </tr>
-                <tr>
-                    <td>ten Smith</td>
-                    <td>EMP002</td>
-                    <td>ten.smith@gmail.com</td>
-                    <td>UI/UX Designer</td>
-                    <td>Design-Y</td>
-                </tr>
-                <tr>
-                    <td>Michael Johnson</td>
-                    <td>EMP003</td>
-                    <td>michael.johnson@gmail.com</td>
-                    <td>Java Devolper</td>
-                    <td>Proton</td>
-                </tr>
-                <tr>
-                  <td>Rajesh Kumar</td>
-                  <td>EMP004</td>
-                  <td>rajesh.kumar@example.com</td>
-                  <td>Database Administrator</td>
-                  <td>Project Z</td>
-              </tr>
-              <tr>
-                  <td>Priya Patel</td>
-                  <td>EMP005</td>
-                  <td>priya.patel@example.com</td>
-                  <td>Business Analyst</td>
-                  <td>Project A</td>
-              </tr>
-            </tbody>
+            <tbody id="employeeList"></tbody>
         </table>
     </div>
-  </div>
 </div>
+<script>const addEmployeeBtn = document.getElementById('addEmployeeBtn');
+    const addEmployeeForm = document.getElementById('addEmployeeForm');
+    const employeeForm = document.getElementById('employeeForm');
+    const employeeList = document.getElementById('employeeList');
+    const employeeTable = document.getElementById('employeeTable');
+
+    addEmployeeBtn.addEventListener('click', function() {
+        addEmployeeForm.style.display = 'block';
+    });
+
+    employeeForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const empName = employeeForm.elements['empName'].value;
+        const empID = employeeForm.elements['empID'].value;
+        const empDesignation = employeeForm.elements['empDesignation'].value;
+        const empMail = employeeForm.elements['empMail'].value;
+
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${empName}</td>
+            <td>${empID}</td>
+            <td>${empDesignation}</td>
+            <td>${empMail}</td>
+        `;
+
+        employeeList.appendChild(newRow);
+        employeeForm.reset();
+        addEmployeeForm.style.display = 'none';
+    });
+</script>
 
 <div id="help" class="content">
     <div class="container">
